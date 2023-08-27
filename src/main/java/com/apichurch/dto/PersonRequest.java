@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PersonRequest {
+    private Long ri;
     private String name;
     private String office;
     private Date consecrationDate;

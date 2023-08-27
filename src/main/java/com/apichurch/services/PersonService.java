@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 @Transactional
@@ -41,7 +42,9 @@ public class PersonService implements Serializable {
     }
 
     public Person createPerson(PersonRequest request){
+        var random = new Random();
         Person person = mapper.toEntity(request);
+        person.setRi(random.nextLong());
         //PersonResponse response = mapper.toResponse(person);
         repository.saveAndFlush(person);
         return person;
